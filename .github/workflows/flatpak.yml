@@ -82,6 +82,7 @@ jobs:
         path: ${{ env.FLATPAK_BUILD_REPO }}
 
   publish-bundle:
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-24.04
     needs: build
 
