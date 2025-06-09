@@ -2,7 +2,7 @@
 
 # flatpak-remote
 
-Remote builder for a high sea simulator called t072u.
+Remote builder for a FOSS software called t072u.
 
 Use at you own risk.
 
