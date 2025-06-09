@@ -1,0 +1,38 @@
+# Based on https://github.com/tenacityteam/tenacity-flatpak-nightly
+name: Update
+on:
+  #schedule:
+    #- cron: '0 0 * * 0'
+  workflow_dispatch:
+
+env:
+  MANIFEST_PATH: org.tenacityaudio.Tenacity.yaml
+  REPO:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub/flatpak-external-data-checker
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Update manifest
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
+      run: |
+        set -x
+        git clone -b main https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git main
+        cd main
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        /app/flatpak-external-data-checker --update --commit-only ${MANIFEST_PATH}
+
+    - name: Push to branch
+      run: |
+        set -x
+        cd main
+        git push https://${{ github.actor }}:${{ secrets.PAT }}@github.com/${{ github.repository }}.git HEAD:main
