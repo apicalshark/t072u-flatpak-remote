@@ -51,7 +51,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/nih-at/libzip/archive/v1.11.4.tar.gz",
-                    "sha256": "82e9f2f2421f9d7c2466bbc3173cd09595a88ea37db0d559a9d0a2dc60dc722e",
+                    "sha256": "4844595615e2436e3cf1ed46a1b260fbdaf8b8fa8f2b594e8b5d8162c696b8b2",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 10649,
