@@ -280,8 +280,8 @@
                      "x86_64": {
                         "config-opts": [
                           "-DYUZU_ENABLE_LTO=ON",
-                          "-DCMAKE_C_FLAGS=$CFLAGS -lxml2 -march=native -mtune=native -Ofast",
-                          "-DCMAKE_CXX_FLAGS=$CXXFLAGS -lxml2 -march=native -mtune=native -Ofast"
+                          "-DCMAKE_C_FLAGS=$CFLAGS -lxml2 -march=native -mtune=native -O3 -ffast-math",
+                          "-DCMAKE_CXX_FLAGS=$CXXFLAGS -lxml2 -march=native -mtune=native -O3 -ffast-math"
                         ]
                     }
                 },
