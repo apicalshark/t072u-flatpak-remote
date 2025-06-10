@@ -264,8 +264,7 @@
                 "-DENABLE_QT_TRANSLATION=ON",
                 "-DYUZU_USE_QT_WEB_ENGINE=ON",
                 "-DBUILD_REPOSITORY=torzu-emu/torzu",
-                "-DYUZU_USE_QT_MULTIMEDIA=ON",
-                "-DYUZU_DOWNLOAD_TIME_ZONE_DATA=ON"
+                "-DYUZU_USE_QT_MULTIMEDIA=ON"
             ],
             "build-options": {
                 "env": {
