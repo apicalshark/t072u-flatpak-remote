@@ -50,8 +50,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/nih-at/libzip/archive/v1.10.1.tar.gz",
-                    "sha256": "d56d857d1c3ad4a7f3a4c01a51c6a6e5530e35ab93503f62276e8ba2b306186a",
+                    "url": "https://github.com/nih-at/libzip/archive/v1.11.4.tar.gz",
+                    "sha256": "4844595615e2436e3cf1ed46a1b260fbdaf8b8fa8f2b594e8b5d8162c696b8b2",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 10649,
@@ -71,8 +71,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/facebook/zstd/releases/download/v1.5.5/zstd-1.5.5.tar.gz",
-                    "sha256": "9c4396cc829cfae319a6e2615202e82aad41372073482fce286fac78646d3ee4",
+                    "url": "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz",
+                    "sha256": "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 12083,
@@ -92,13 +92,13 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/fmtlib/fmt/releases/download/11.0.2/fmt-11.0.2.zip",
-                    "sha256": "40fc58bebcf38c759e11a7bd8fdc163507d2423ef5058bba7f26280c5b9c5465",                    
+                    "url": "https://github.com/fmtlib/fmt/releases/download/11.2.0/fmt-11.2.0.zip",
+                    "sha256": "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3",                    
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 11526,
                         "versions": {
-                            "<": "11.0.0"
+                            "<": "12.0.0"
                         },
                         "url-template": "https://github.com/fmtlib/fmt/releases/download/$version/fmt-$version.zip"
                     }
@@ -224,8 +224,8 @@
                 {
                     "type": "git",
                     "url": "https://git.videolan.org/git/ffmpeg/nv-codec-headers.git",
-                    "tag": "n12.1.14.0",
-                    "commit": "1889e62e2d35ff7aa9baca2bceb14f053785e6f1",
+                    "tag": "n13.0.19.0",
+                    "commit": "e844e5b26f46bb77479f063029595293aa8f812d",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^n([\\d.]+)$"
@@ -243,8 +243,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/FeralInteractive/gamemode/releases/download/1.8.1/gamemode-1.8.1.tar.xz",
-                    "sha256": "cdb117d05d65dbd03c0bd2104df874a1f878db8f23cc4d55bfa44e832482269e",
+                    "url": "https://github.com/FeralInteractive/gamemode/releases/download/1.8.2/gamemode-1.8.2.tar.xz",
+                    "sha256": "98cd1bcf6101c92fe87f974c7776af23c7e18f29ce6ecfe572b1c39dcde5c181",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 17418,
@@ -263,7 +263,8 @@
                 "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
                 "-DENABLE_QT_TRANSLATION=ON",
                 "-DYUZU_USE_QT_WEB_ENGINE=ON",
-                "-DBUILD_REPOSITORY=torzu-emu/torzu"
+                "-DBUILD_REPOSITORY=torzu-emu/torzu",
+                "-DYUZU_USE_QT_MULTIMEDIA=ON"
             ],
             "build-options": {
                 "env": {
@@ -274,6 +275,13 @@
                     "aarch64": {
                         "config-opts": [
                             "-DENABLE_OPENGL=OFF"
+                        ]
+                    },
+                     "x86_64": {
+                        "config-opts": [
+                          "-DYUZU_ENABLE_LTO=ON",
+                          "-DCMAKE_C_FLAGS=$CFLAGS -lxml2 -march=native -mtune=native -O3",
+                          "-DCMAKE_CXX_FLAGS=$CXXFLAGS -lxml2 -march=native -mtune=native -O3"
                         ]
                     }
                 },
