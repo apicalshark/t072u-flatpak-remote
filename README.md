@@ -10,6 +10,6 @@ Use at you own risk.
 
 
 ```bash
-flatpak remote-add --user --if-not-exists torzu oci+https://apicalshark.github.io/t072u-flatpak-remote/
+flatpak remote-add --if-not-exists torzu oci+https://apicalshark.github.io/t072u-flatpak-remote/
 flatpak install onion.torzu_emu.torzu
 ```
