@@ -1,10 +1,10 @@
 {
     "app-id": "onion.torzu_emu.torzu",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.9",
+    "runtime-version": "5.15-24.08",
     "sdk": "org.kde.Sdk",
     "base": "io.qt.qtwebengine.BaseApp",
-    "base-version": "6.9",
+    "base-version": "5.15-24.08",
     "command": "yuzu-launcher",
     "finish-args": [
         "--device=all",
