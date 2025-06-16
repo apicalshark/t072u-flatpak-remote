@@ -16,6 +16,7 @@
         "--filesystem=xdg-run/app/com.discordapp.Discord:ro",
         "--filesystem=home:ro",
         "--filesystem=/run/media:ro",
+        "--filesystem=xdg-run/pipewire-0",
         "--talk-name=org.freedesktop.login1.Manager",
         "--env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess"
     ],
@@ -259,13 +260,14 @@
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
                 "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
                 "-DENABLE_QT_TRANSLATION=ON",
                 "-DYUZU_USE_QT_WEB_ENGINE=ON",
                 "-DBUILD_REPOSITORY=torzu-emu/torzu",
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
+                "-DYUZU_ENABLE_LTO=ON",
                 "-DENABLE_QT6=OFF"
             ],
             "build-options": {
@@ -281,9 +283,8 @@
                     },
                      "x86_64": {
                         "config-opts": [
-                          "-DYUZU_ENABLE_LTO=ON",
-                          "-DCMAKE_C_FLAGS=$CFLAGS -O3",
-                          "-DCMAKE_CXX_FLAGS=$CXXFLAGS -O3"
+                          "-DCMAKE_C_FLAGS=$CFLAGS -march=x86-64-v3 -O3",
+                          "-DCMAKE_CXX_FLAGS=$CXXFLAGS -march=x86-64-v3 -O3"
                         ]
                     }
                 },
