@@ -282,7 +282,7 @@
                      "x86_64": {
                         "config-opts": [
                           "-DYUZU_ENABLE_LTO=ON",
-                          "-DCMAKE_C_FLAGS=$CFLAGS --march=x86-64-v3 -O3 -flto=auto",
+                          "-DCMAKE_C_FLAGS=$CFLAGS -march=x86-64-v3 -O3 -flto=auto",
                           "-DCMAKE_CXX_FLAGS=$CXXFLAGS -march=x86-64-v3 -O3 -flto=auto"
                         ]
                     }
