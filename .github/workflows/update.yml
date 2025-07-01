@@ -6,6 +6,11 @@ on:
   #  - cron: '0 0 * * *' # Runs daily at midnight UTC
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+  pull-requests: write
+
+
 jobs:
   update-dependencies:
     runs-on: ubuntu-latest
@@ -27,9 +32,8 @@ jobs:
         with:
           args: --update --never-fork onion.torzu_emu.torzu.json
         env:
-
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_AUTHOR_NAME: 'github-actions[bot]'
-          GIT_COMMITTER_NAME: 'github-actions[bot]'
+          GIT_AUTHOR_NAME: 'Flatpak External Data Checker'
+          GIT_COMMITTER_NAME: 'Flatpak External Data Checker'
           GIT_AUTHOR_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
           GIT_COMMITTER_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
