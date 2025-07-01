@@ -307,10 +307,7 @@
                     "type": "git",
                     "url": "https://notabug.org/litucks/torzu.git",
                     "disable-shallow-clone": true,
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^(mainline-0-\\d+)$"
-                    }
+                    "branch": "master"
                 },
                 {
                     "type": "file",

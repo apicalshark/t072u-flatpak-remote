@@ -19,6 +19,7 @@ jobs:
         with:
           ref: ${{ matrix.branch }}
           fetch-depth: 0
+          submodules: 'recursive'
 
       - name: 'Run flatpak-external-data-checker'
         uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
