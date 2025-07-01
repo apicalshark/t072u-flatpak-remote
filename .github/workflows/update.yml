@@ -1,14 +1,9 @@
 name: 'Update Flathub Dependencies'
 
-
 on:
   #schedule:
   #  - cron: '0 0 * * *' # Runs daily at midnight UTC
   workflow_dispatch: {}
-
-permissions: write-all
-  
-
 
 jobs:
   update-dependencies:
@@ -22,14 +17,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ matrix.branch }}
-          fetch-depth: 0
           submodules: 'recursive'
 
       - name: 'Run flatpak-external-data-checker'
         continue-on-error: true
         uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
         with:
-          args: --update --never-fork onion.torzu_emu.torzu.json
+          args: --update onion.torzu_emu.torzu.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_AUTHOR_NAME: 'Flatpak External Data Checker'
