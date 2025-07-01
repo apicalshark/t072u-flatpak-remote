@@ -22,6 +22,7 @@ jobs:
           submodules: 'recursive'
 
       - name: 'Run flatpak-external-data-checker'
+        continue-on-error: true
         uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
         with:
           args: --update --never-fork onion.torzu_emu.torzu.json
