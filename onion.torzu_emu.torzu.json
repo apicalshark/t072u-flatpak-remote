@@ -138,7 +138,7 @@
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz",
+                    "url": "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.213.0.tar.gz",
                     "sha256": "32b4c6ae6a2fa9b56c2c17233c8056da47e331f76e117729925825ea3e77a739",
                     "dest": "External/spirv-tools/external/spirv-headers",
                     "x-checker-data": {
