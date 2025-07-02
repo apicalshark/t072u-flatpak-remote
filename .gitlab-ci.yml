@@ -50,15 +50,20 @@ publish_oci_and_pages:
     # Create OCI bundle
     - mkdir -p ${FLATPAK_BUILD_REPO}/{extensions,refs/{mirrors,remotes},state,tmp/cache}
     - flatpak build-bundle --oci --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo ${FLATPAK_BUILD_REPO} ${FLATPAK_BUNDLE} ${APP_ID} ${FLATPAK_BRANCH}
-    # Login and Push to Quay.io
-    - skopeo login --username "${QUAY_USER}" --password-stdin quay.io <<<$QUAY_TOKEN
-    - skopeo copy oci:${FLATPAK_BUNDLE} docker://quay.io/your-quay-username/${IMAGE_NAME}:${IMAGE_TAG}
+    
+    # Login and Push to Docker Hub
+    - echo "Logging in to Docker Hub..."
+    - skopeo login --username "${DOCKERHUB_USERNAME}" --password-stdin docker.io <<<$DOCKERHUB_TOKEN
+    - echo "Pushing OCI image to Docker Hub..."
+    - skopeo copy oci:${FLATPAK_BUNDLE} docker://docker.io/${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}
+    
     # Generate and Deploy Static Index to Cloudflare Pages
-    - export QUAY_IMAGE_REPO="your-quay-username/${IMAGE_NAME}"
+    - echo "Generating static index for Docker Hub..."
+    - export DOCKER_IMAGE_REPO="${DOCKERHUB_USERNAME}/${IMAGE_NAME}"
     - mkdir -p cf-pages/index
-    # Create a static index file for Cloudflare Pages
     - |
-      skopeo inspect docker://quay.io/${QUAY_IMAGE_REPO}:${IMAGE_TAG} | jq '. as $img | { "Registry": "https://quay.io/", "Results": [ { "Name": "'${QUAY_IMAGE_REPO}'", "Images": [$img] } ] }' > cf-pages/index/static
+      skopeo inspect docker://docker.io/${DOCKER_IMAGE_REPO}:${IMAGE_TAG} | jq '. as $img | { "Registry": "docker.io", "Results": [ { "Name": "'${DOCKER_IMAGE_REPO}'", "Images": [$img] } ] }' > cf-pages/index/static
+    - echo "Deploying static index to Cloudflare Pages..."
     - wrangler pages deploy cf-pages --project-name ${CLOUDFLARE_PROJECT_NAME} --commit-dirty=true
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" && ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web")'
