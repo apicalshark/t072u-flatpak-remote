@@ -94,7 +94,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/fmtlib/fmt/releases/download/11.2.0/fmt-11.2.0.zip",
-                    "sha256": "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3",                    
+                    "sha256": "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 11526,
@@ -115,8 +115,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/KhronosGroup/glslang/archive/14.0.0.tar.gz",
-                    "sha256": "80bbb916a23e94ea9cbfb1acb5d1a44a7e0c9613bcf5b5947c03f2273bdc92b0",
+                    "url": "https://github.com/KhronosGroup/glslang/archive/15.4.0.tar.gz",
+                    "sha256": "b16c78e7604b9be9f546ee35ad8b6db6f39bbbbfb19e8d038b6fe2ea5bba4ff4",
                     "x-checker-data": {
                         "type": "anitya",
                         "stable-only": true,
@@ -162,8 +162,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/catchorg/Catch2/archive/v3.5.3.tar.gz",
-                    "sha256": "8d723b0535c94860ef8cf6231580fa47d67a3416757ecb10639e40d748ab6c71",
+                    "url": "https://github.com/catchorg/Catch2/archive/v3.8.1.tar.gz",
+                    "sha256": "18b3f70ac80fccc340d8c6ff0f339b2ae64944782f8d2fca2bd705cf47cadb79",
                     "x-checker-data": {
                         "type": "anitya",
                         "stable-only": true,
@@ -281,10 +281,10 @@
                             "-DENABLE_OPENGL=OFF"
                         ]
                     },
-                     "x86_64": {
+                    "x86_64": {
                         "config-opts": [
-                          "-DCMAKE_C_FLAGS=$CFLAGS -march=x86-64-v3 -O3",
-                          "-DCMAKE_CXX_FLAGS=$CXXFLAGS -march=x86-64-v3 -O3"
+                            "-DCMAKE_C_FLAGS=$CFLAGS -march=x86-64-v3 -O3",
+                            "-DCMAKE_CXX_FLAGS=$CXXFLAGS -march=x86-64-v3 -O3"
                         ]
                     }
                 },
