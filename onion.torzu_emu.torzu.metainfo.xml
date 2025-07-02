@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-SPDX-FileCopyrightText: 2021 yuzu Emulator Project
-SPDX-License-Identifier: CC0-1.0
--->
-
 <component type="desktop-application">
   <id>onion.torzu_emu.torzu</id>
   <metadata_license>CC0-1.0</metadata_license>
   <name>torzu</name>
   <summary>NS emulator</summary>
   <description>
-    <p>torzu is the world's most popular, open-source, Nintendo Switch emulator — started by the creators of Citra.</p>
+    <p>torzu is the world's most popular, open-source, NS emulator — started by the creators of Citra.</p>
     <p>The emulator is capable of running most commercial games at full speed, provided you meet the necessary hardware requirements.</p>
   </description>
   <categories>
