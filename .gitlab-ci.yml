@@ -15,7 +15,7 @@ variables:
 
 build_flatpak:
   stage: build
-  image: ubuntu:24.04
+  image: myoung34/github-runner:latest
   script:
     - apt-get update -y && apt-get install -y flatpak-builder git
     - flatpak-builder --show-manifest ${MANIFEST_PATH} > canonical-manifest.json
