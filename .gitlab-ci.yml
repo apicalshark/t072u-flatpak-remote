@@ -15,9 +15,9 @@ variables:
 
 build_flatpak:
   stage: build
-  image: myoung34/github-runner:latest
+  image: ubuntu:24.04
   script:
-    - apt-get update -y && apt-get install -y flatpak-builder git
+    - apt-get update -y && apt-get install -y flatpak-builder git bzip2 ca-certificates ccache
     - flatpak-builder --show-manifest ${MANIFEST_PATH} > canonical-manifest.json
     - flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     - flatpak-builder --default-branch=${FLATPAK_BRANCH} --install-deps-from=flathub --install-deps-only --user /dev/null ${MANIFEST_PATH}
