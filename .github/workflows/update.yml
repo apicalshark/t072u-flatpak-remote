@@ -1,32 +1,35 @@
-name: 'Update Flathub Dependencies'
-
+name: Update
 on:
   #schedule:
-  #  - cron: '0 0 * * *' # Runs daily at midnight UTC
-  workflow_dispatch: {}
+    #- cron: '0 0 * * 0'
+  workflow_dispatch:
 
+env:
+  MANIFEST_PATH: onion.torzu_emu.torzu.json
 jobs:
-  update-dependencies:
+  update:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        branch: [ 'master' ]
+    container:
+      image: ghcr.io/flathub/flatpak-external-data-checker
 
     steps:
-      - name: 'Checkout repository'
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ matrix.branch }}
-          submodules: 'recursive'
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
 
-      - name: 'Run flatpak-external-data-checker'
-        continue-on-error: true
-        uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
-        with:
-          args: --update onion.torzu_emu.torzu.json
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_AUTHOR_NAME: 'Flatpak External Data Checker'
-          GIT_COMMITTER_NAME: 'Flatpak External Data Checker'
-          GIT_AUTHOR_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
-          GIT_COMMITTER_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
+    - name: Update manifest
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
+      run: |
+        set -x
+        git clone -b main https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git main
+        cd main
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        /app/flatpak-external-data-checker --update --commit-only ${MANIFEST_PATH}
+
+    - name: Push to branch
+      run: |
+        set -x
+        cd main
+        git push https://${{ github.actor }}:${{ secrets.PAT }}@github.com/${{ github.repository }}.git HEAD:main
