@@ -18,6 +18,7 @@ jobs:
         submodules: true
 
     - name: Update manifest
+      continue-on-error: true
       env:
         GITHUB_TOKEN: ${{ secrets.PAT }}
       run: |
@@ -29,6 +30,7 @@ jobs:
         /app/flatpak-external-data-checker --update --commit-only ${MANIFEST_PATH}
 
     - name: Push to branch
+      continue-on-error: true
       run: |
         set -x
         cd master
