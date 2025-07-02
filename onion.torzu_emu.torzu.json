@@ -138,8 +138,8 @@
                 },
                 {
                     "type": "archive",
-                    "url": "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.213.0.tar.gz",
-                    "sha256": "32b4c6ae6a2fa9b56c2c17233c8056da47e331f76e117729925825ea3e77a739",
+                    "url": "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz",
+                    "sha256": "f68be549d74afb61600a1e3a7d1da1e6b7437758c8e77d664909f88f302c5ac1",
                     "dest": "External/spirv-tools/external/spirv-headers",
                     "x-checker-data": {
                         "type": "anitya",
