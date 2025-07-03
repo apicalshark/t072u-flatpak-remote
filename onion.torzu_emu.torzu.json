@@ -5,7 +5,7 @@
     "sdk": "org.kde.Sdk",
     "base": "io.qt.qtwebengine.BaseApp",
     "base-version": "5.15-24.08",
-    "command": "yuzu-launcher",
+    "command": "yuzu",
     "finish-args": [
         "--device=all",
         "--socket=fallback-x11",
