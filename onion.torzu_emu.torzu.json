@@ -260,7 +260,7 @@
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DCMAKE_BUILD_TYPE=Release",
                 "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
                 "-DENABLE_QT_TRANSLATION=ON",
                 "-DYUZU_USE_QT_WEB_ENGINE=ON",
@@ -268,7 +268,8 @@
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
-                "-DYUZU_BUILD_QT6=ON"
+                "-DYUZU_BUILD_QT6=ON",
+                "-DTZ_LINK_INTL=ON"
             ],
             "build-options": {
                 "env": {
