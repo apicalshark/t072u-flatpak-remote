@@ -297,10 +297,6 @@
                 "/share/pixmaps"
             ],
             "post-install": [
-                "install -Dm755 ../yuzu-launcher.sh /app/bin/yuzu-launcher",
-                "install -Dm644 ../onion.torzu_emu.torzu.metainfo.xml /app/share/metainfo/onion.torzu_emu.torzu.metainfo.xml",
-                "install -Dm644 ../onion.torzu_emu.torzu.svg /app/share/icons/hicolor/scalable/apps/onion.torzu_emu.torzu.svg",
-                "desktop-file-edit --set-key StartupWMClass --set-value yuzu --set-key Exec --set-value yuzu-launcher /app/share/applications/onion.torzu_emu.torzu.desktop",
                 "rm -rf /app/share/appdata"
             ],
             "sources": [
@@ -309,23 +305,6 @@
                     "url": "https://notabug.org/litucks/torzu.git",
                     "disable-shallow-clone": true,
                     "branch": "master"
-                },
-                {
-                    "type": "file",
-                    "path": "onion.torzu_emu.torzu.metainfo.xml"
-                },
-                {
-                    "type": "file",
-                    "path": "onion.torzu_emu.torzu.svg"
-                },
-                {
-                    "type": "file",
-                    "path": "yuzu-launcher.sh"
-                },
-                {
-                    "type": "file",
-                    "path": "compatibility_list.json",
-                    "dest": "dist/compatibility_list"
                 }
             ]
         }
