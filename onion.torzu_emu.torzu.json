@@ -305,6 +305,10 @@
                     "url": "https://notabug.org/litucks/torzu.git",
                     "disable-shallow-clone": true,
                     "branch": "master"
+                },
+                {
+                    "type": "patch",
+                    "path": "patch/01-last-5-commit.patch"
                 }
             ]
         }
