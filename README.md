@@ -13,5 +13,5 @@ Use at you own risk.
 flatpak remote-add --if-not-exists torzu oci+https://apicalshark.github.io/t072u-flatpak-remote/
 flatpak install onion.torzu_emu.torzu
 ```
-
-Note: Remove the Wayland socket with Flatseal if the window decorations of the dark theme are not displaying correctly.
+> [!NOTE]
+> Note: For GNOME Wayland session user, try removing the Wayland socket with Flatseal if the window decorations of the dark theme are not displaying correctly.
