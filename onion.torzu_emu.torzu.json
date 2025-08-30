@@ -1,10 +1,10 @@
 {
     "app-id": "onion.torzu_emu.torzu",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-24.08",
+    "runtime-version": "6.9",
     "sdk": "org.kde.Sdk",
     "base": "io.qt.qtwebengine.BaseApp",
-    "base-version": "5.15-24.08",
+    "base-version": "6.9",
     "command": "yuzu",
     "finish-args": [
         "--device=all",
@@ -268,7 +268,8 @@
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
-                "-DENABLE_QT6=OFF"
+                "-DENABLE_QT6=ON",
+                "-DTZ_LINK_INTL=ON"
             ],
             "build-options": {
                 "env": {

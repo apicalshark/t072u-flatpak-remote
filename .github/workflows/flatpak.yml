@@ -2,17 +2,12 @@
 name: Flatpak
 
 on:
-  #push:
-  #  branches:
-  #    - master
-  schedule:
-    - cron: "0 0 1 * *"
+  # push:
+  #   branches:
+  #     - master
+  # schedule:
+  #   - cron: "0 0 1 * *"
   workflow_dispatch:
-    inputs:
-      create_release:
-        description: "Create new release"
-        required: true
-        type: boolean
 
 permissions:
   contents: write
@@ -89,7 +84,7 @@ jobs:
           path: ${{ env.FLATPAK_BUILD_REPO }}
 
   publish-bundle:
-    if: github.ref == 'refs/heads/dev' || ${{ github.event.inputs.create_release != 'true' }}
+    if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-24.04
     needs: build
 
@@ -121,7 +116,7 @@ jobs:
           path: ${{ env.FLATPAK_BUNDLE }}.flatpak
 
   publish-oci:
-    if: github.ref == 'refs/heads/master' && ${{ github.event.inputs.create_release == 'true' }}
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-24.04
     needs: build
 
