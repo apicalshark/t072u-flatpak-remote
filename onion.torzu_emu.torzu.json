@@ -268,7 +268,6 @@
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
-                "-DENABLE_QT6=ON",
                 "-DTZ_LINK_INTL=ON"
             ],
             "build-options": {
