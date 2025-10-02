@@ -256,6 +256,21 @@
             ]
         },
         {
+          "name": "httplib",
+          "buildsystem": "simple",
+          "sources": [
+            {
+              "type": "git",
+              "url": "https://github.com/yhirose/cpp-httplib.git",
+              "tag": "v0.26.0"
+            }
+          ],
+          "build-commands": [
+            "mkdir -p /app/include/httplib",
+            "install -m 644 httplib.h /app/include/httplib/"
+          ]
+        },
+        {
             "name": "yuzu",
             "buildsystem": "cmake-ninja",
             "builddir": true,
@@ -268,8 +283,7 @@
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
-                "-DTZ_LINK_INTL=ON",
-                "-DYUZU_USE_CPM=ON"
+                "-DTZ_LINK_INTL=ON"
             ],
             "build-options": {
                 "env": {
