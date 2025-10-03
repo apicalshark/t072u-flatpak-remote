@@ -328,10 +328,6 @@
                     "url": "https://notabug.org/litucks/torzu.git",
                     "disable-shallow-clone": true,
                     "branch": "master"
-                },
-                {
-                    "type": "patch",
-                    "file": "add-missing-cmake-deps.patch"
                 }
             ]
         }
