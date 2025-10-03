@@ -330,6 +330,10 @@
                     "branch": "master"
                 },
                 {
+                    "type": "file",
+                    "path": "add-missing-cmake-deps.patch"
+                },
+                {
                     "type": "patch",
                     "file": "add-missing-cmake-deps.patch"
                 }
