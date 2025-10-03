@@ -256,18 +256,26 @@
             ]
         },
         {
-          "name": "httplib",
-          "buildsystem": "simple",
+          "name": "cpp-httplib",
+          "buildsystem": "cmake",
           "sources": [
             {
               "type": "git",
               "url": "https://github.com/yhirose/cpp-httplib.git",
-              "tag": "v0.26.0"
+              "tag": "v0.26.0",
+              "x-checker-data": {
+                    "type": "git",
+                    "tag-pattern": "^v([\\d.]+)$"
+              }
             }
           ],
-          "build-commands": [
-            "mkdir -p /app/include/httplib",
-            "install -m 644 httplib.h /app/include/httplib/"
+          "config-opts": [
+            "-DHTTPLIB_COMPILE=OFF",
+            "-DHTTPLIB_USE_BROTLI_IF_AVAILABLE=OFF",
+            "-DHTTPLIB_USE_OPENSSL_IF_AVAILABLE=ON",
+            "-DHTTPLIB_USE_ZLIB_IF_AVAILABLE=ON",
+            "-DHTTPLIB_USE_ZSTD_IF_AVAILABLE=ON",
+            "-DBUILD_SHARED_LIBS=OFF"
           ]
         },
         {
@@ -320,6 +328,10 @@
                     "url": "https://notabug.org/litucks/torzu.git",
                     "disable-shallow-clone": true,
                     "branch": "master"
+                },
+                {
+                    "type": "patch",
+                    "file": "add-missing-cmake-deps.patch"
                 }
             ]
         }
