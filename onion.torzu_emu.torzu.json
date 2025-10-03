@@ -283,7 +283,8 @@
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
-                "-DTZ_LINK_INTL=ON"
+                "-DTZ_LINK_INTL=ON",
+                "-Wno-dev"
             ],
             "build-options": {
                 "env": {
