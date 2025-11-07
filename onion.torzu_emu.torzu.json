@@ -1,11 +1,11 @@
 {
-    "app-id": "onion.torzu_emu.torzu",
+    "app-id": "dev.eden_emu.eden",
     "runtime": "org.kde.Platform",
     "runtime-version": "6.9",
     "sdk": "org.kde.Sdk",
     "base": "io.qt.qtwebengine.BaseApp",
     "base-version": "6.9",
-    "command": "yuzu",
+    "command": "eden",
     "finish-args": [
         "--device=all",
         "--socket=fallback-x11",
@@ -81,6 +81,52 @@
                         "url-template": "https://github.com/facebook/zstd/releases/download/v$version/zstd-$version.tar.gz"
                     }
                 }
+            ]
+        },
+        {
+            "name": "sirit",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DSIRIT_TESTS=OFF",
+                "-DSIRIT_BUILD_STATIC=ON"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.eden-emu.dev/eden-emu/sirit.git",
+                    "tag": "v0.0.0",
+                    "commit":  "d4bbd78b000000000000043bf542afc8ae4d5093",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^(v(?:[\d.]+)(?:-(?:[a-zA-Z0-9]+))?)$"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "oaknut",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_INSTALL_INCLUDEDIR=include/oaknut"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.eden-emu.dev/eden-emu/oaknut.git",
+                    "tag": "v0.0.0",
+                    "commit":  "d4bbd78b000000000000043bf542afc8ae4d5093",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^(v(?:[\d.]+)(?:-(?:[a-zA-Z0-9]+))?)$"
+                    }
+                }
+            ],
+            "cleanup": [
+                "/lib/pkgconfig",
+                "/lib/cmake",
+                "/share"
             ]
         },
         {
@@ -256,7 +302,7 @@
             ]
         },
         {
-            "name": "yuzu",
+            "name": "eden",
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
@@ -264,22 +310,33 @@
                 "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
                 "-DENABLE_QT_TRANSLATION=ON",
                 "-DYUZU_USE_QT_WEB_ENGINE=ON",
-                "-DBUILD_REPOSITORY=torzu-emu/torzu",
                 "-DYUZU_USE_QT_MULTIMEDIA=ON",
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
-                "-DTZ_LINK_INTL=ON",
-                "-Wno-dev"
+                "-Wno-dev",
+                "-DBUILD_REPOSITORY=eden-emu/eden",
+                "-DUSE_DISCORD_PRESENCE=ON",
+                "-DYUZU_USE_BUNDLED_QT=OFF",
+                "-DYUZU_USE_BUNDLED_SDL2=OFF",
+                "-DYUZU_USE_EXTERNAL_SDL2=ON",
+                "-DYUZU_USE_PRECOMPILED_HEADERS=OFF",
+                "-DENABLE_UPDATE_CHECKER=ON",
+                "-DYUZU_USE_FASTER_LD=ON",
+                "-DDYNARMIC_ENABLE_LTO=ON",
+                "-DYUZU_BUILD_PRESET=v3"
             ],
             "build-options": {
                 "env": {
-                    "TITLEBARFORMATIDLE": "torzu {}",
-                    "TITLEBARFORMATRUNNING": "torzu {} | {}"
+                    "TITLEBARFORMATIDLE": "Eden {}",
+                    "TITLEBARFORMATRUNNING": "Eden {} | {}"
                 },
                 "arch": {
                     "aarch64": {
                         "config-opts": [
-                            "-DENABLE_OPENGL=OFF"
+                            "-DENABLE_OPENGL=OFF",
+                            "-DYUZU_BUILD_PRESET=generic",
+                            "-DCMAKE_C_FLAGS=$CFLAGS -march=armv8-a -mtune=generic -O3 -w",
+                            "-DCMAKE_CXX_FLAGS=$CXXFLAGS -march=armv8-a -mtune=generic -O3 -w"
                         ]
                     },
                     "x86_64": {
@@ -302,7 +359,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://notabug.org/litucks/torzu.git",
+                    "url": "https://git.eden-emu.dev/eden-emu/eden.git",
                     "disable-shallow-clone": true,
                     "branch": "master"
                 }
