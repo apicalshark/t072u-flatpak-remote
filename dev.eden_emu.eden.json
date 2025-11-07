@@ -108,6 +108,7 @@
         {
             "name": "oaknut",
             "buildsystem": "cmake-ninja",
+             "builddir": true,
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DCMAKE_INSTALL_INCLUDEDIR=include/oaknut"
