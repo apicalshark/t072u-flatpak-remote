@@ -86,6 +86,7 @@
         {
             "name": "sirit",
             "buildsystem": "cmake-ninja",
+            "builddir": true, 
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DSIRIT_TESTS=OFF",
