@@ -326,8 +326,7 @@
                 "-DENABLE_UPDATE_CHECKER=ON",
                 "-DYUZU_USE_FASTER_LD=ON",
                 "-DDYNARMIC_ENABLE_LTO=ON",
-                "-DYUZU_BUILD_PRESET=v3",
-                "-DYUZU_USE_CPM=OFF"
+                "-DYUZU_BUILD_PRESET=v3"
             ],
             "build-options": {
                 "env": {
