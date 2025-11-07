@@ -111,7 +111,8 @@
              "builddir": true,
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-DCMAKE_INSTALL_INCLUDEDIR=include/oaknut"
+                "-DCMAKE_INSTALL_INCLUDEDIR=include/oaknut",
+                "-DBUILD_TESTING=OFF"
             ],
             "sources": [
                 {
