@@ -77,7 +77,7 @@ jobs:
         run: |
           set -e
           ABS_MANIFEST_PATH=${{ github.workspace }}/${MANIFEST_PATH}
-          flatpak-builder --disable-updates --disable-download --ccache --sandbox --default-branch=${FLATPAK_BRANCH} --repo=${FLATPAK_BUILD_REPO} ${FLATPAK_BUILD_DIR} $ABS_MANIFEST_PATH
+          flatpak-builder --default-branch=${FLATPAK_BRANCH} --repo=${FLATPAK_BUILD_REPO} ${FLATPAK_BUILD_DIR} $ABS_MANIFEST_PATH
           
       - name: Upload flatpak repo
         uses: actions/upload-artifact@v4
