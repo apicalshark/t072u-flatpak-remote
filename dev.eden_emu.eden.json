@@ -99,7 +99,7 @@
                     "commit": "d4bbd78b000000000000043bf542afc8ae4d5093",
                     "x-checker-data": {
                         "type": "git",
-                        "tag-pattern": "^(v(?:[d.]+)(?:-(?:[a-zA-Z0-9]+))?)$"
+                        "tag-pattern": "^v([\\d.]+)$"
                     }
                 }
             ]
@@ -119,7 +119,7 @@
                     "commit": "d4bbd78b000000000000043bf542afc8ae4d5093",
                     "x-checker-data": {
                         "type": "git",
-                        "tag-pattern": "^(v(?:[d.]+)(?:-(?:[a-zA-Z0-9]+))?)$"
+                        "tag-pattern": "^v([\\d.]+)$"
                     }
                 }
             ],
