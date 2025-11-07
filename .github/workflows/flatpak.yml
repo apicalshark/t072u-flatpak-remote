@@ -15,15 +15,15 @@ permissions:
 
 env:
   # App ID (reverse-DNS) (example= org.tenacityaudio.Tenacity)
-  APP_ID: onion.torzu_emu.torzu
+  APP_ID: dev.eden_emu.eden
   # Path to manifest (example= org.tenacityaudio.Tenacity.yaml)
-  MANIFEST_PATH: onion.torzu_emu.torzu.json
+  MANIFEST_PATH: dev.eden_emu.eden.json
   # Name of Docker image (example= tenacity)
-  IMAGE_NAME: torzu
+  IMAGE_NAME: eden
   # Tag of image  (example= stable, beta, nightly)
   IMAGE_TAG: stable
   # Name of bundle (excl. .flatpak) (example= tenacity)
-  FLATPAK_BUNDLE: torzu
+  FLATPAK_BUNDLE: eden
   # Flatpak branch (example= stable, beta, nightly)
   FLATPAK_BRANCH: stable
 
@@ -32,7 +32,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -45,10 +45,10 @@ jobs:
           sudo apt update -y
           sudo apt install -y flatpak-builder
 
-      - name: Dump canonical manifest
-        run: |
-          set -e
-          flatpak-builder --show-manifest ${MANIFEST_PATH} > canonical-manifest.json
+      # - name: Dump canonical manifest
+      #   run: |
+      #     set -e
+      #     flatpak-builder --show-manifest ${MANIFEST_PATH} > canonical-manifest.json
 
       - name: Download flatpak SDK and sources
         run: |
@@ -58,14 +58,14 @@ jobs:
           flatpak-builder --default-branch=${FLATPAK_BRANCH} --install-deps-from=flathub --install-deps-only --user /dev/null $ABS_MANIFEST_PATH
           flatpak-builder --default-branch=${FLATPAK_BRANCH} --download-only /dev/null $ABS_MANIFEST_PATH
 
-      - name: Prime cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            .flatpak-builder/ccache
-          key: flatpak-builder-${{ hashFiles('canonical-manifest.json') }}
-          restore-keys: |
-            flatpak-builder-
+      # - name: Prime cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       .flatpak-builder/ccache
+      #     key: flatpak-builder-${{ hashFiles('canonical-manifest.json') }}
+      #     restore-keys: |
+      #       flatpak-builder-
 
       # In Ubuntu, Git no longer allows you to add a submodule via file:///
       # transport. As a fix, run git config --global protocol.file.allow always
@@ -87,12 +87,10 @@ jobs:
 
   publish-bundle:
     if: github.ref != 'refs/heads/master'
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     needs: build
 
     steps:
-      - uses: actions/checkout@v4
-
       - name: Install flatpak
         run: |
           set -e
@@ -119,12 +117,10 @@ jobs:
 
   publish-oci:
     if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     needs: build
 
     steps:
-      - uses: actions/checkout@v4
-
       - name: Install flatpak and libcontainers tools
         run: |
           set -e

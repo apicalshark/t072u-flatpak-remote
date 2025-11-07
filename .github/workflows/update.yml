@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 env:
-  MANIFEST_PATH: onion.torzu_emu.torzu.json
-  REPO_BRANCH: master
+  MANIFEST_PATH: dev.eden_emu.eden.json
+  REPO_BRANCH: testing
 jobs:
   update:
     runs-on: ubuntu-latest
