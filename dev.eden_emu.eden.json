@@ -345,10 +345,11 @@
                 "-DYUZU_USE_BUNDLED_SDL2=OFF",
                 "-DYUZU_USE_EXTERNAL_SDL2=ON",
                 "-DYUZU_USE_PRECOMPILED_HEADERS=OFF",
-                "-DENABLE_UPDATE_CHECKER=ON",
+                "-DENABLE_UPDATE_CHECKER=OFF",
                 "-DYUZU_USE_FASTER_LD=ON",
                 "-DDYNARMIC_ENABLE_LTO=ON",
-                "-DYUZU_BUILD_PRESET=v3"
+                "-DYUZU_BUILD_PRESET=v3",
+                "-DYUZU_USE_CPM=OFF"
             ],
             "build-options": {
                 "env": {
