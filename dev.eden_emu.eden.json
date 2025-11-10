@@ -86,7 +86,7 @@
         {
             "name": "sirit",
             "buildsystem": "cmake-ninja",
-            "builddir": true, 
+            "builddir": true,
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DSIRIT_TESTS=OFF",
@@ -108,7 +108,7 @@
         {
             "name": "oaknut",
             "buildsystem": "cmake-ninja",
-             "builddir": true,
+            "builddir": true,
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DCMAKE_INSTALL_INCLUDEDIR=include/oaknut",
@@ -315,8 +315,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/herumi/xbyak.git",
-                    "tag": "v0.1",
-                    "commit": "d4bbd78b000000000000043bf542afc8ae4d5093",
+                    "tag": "v7.30",
+                    "commit": "9d8ff37306f39c6a71cf998078cbe880ce5dc224",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
