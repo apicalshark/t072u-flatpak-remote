@@ -293,13 +293,15 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/FeralInteractive/gamemode/releases/download/1.8.2/gamemode-1.8.2.tar.xz",
+                    "dest-filename": "gamemode.tar.gz",
+                    "url": "https://api.github.com/repos/FeralInteractive/gamemode/tarball/1.8.2",
                     "sha256": "98cd1bcf6101c92fe87f974c7776af23c7e18f29ce6ecfe572b1c39dcde5c181",
                     "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 17418,
-                        "stable-only": true,
-                        "url-template": "https://github.com/FeralInteractive/gamemode/releases/download/$version/gamemode-$version.tar.xz"
+                        "type": "json",
+                        "url": "https://api.github.com/repos/FeralInteractive/gamemode/releases/latest",
+                        "version-query": ".tag_name",
+                        "url-query": ".tarball_url",
+                        "timestamp-query": ".published_at"
                     }
                 }
             ]
