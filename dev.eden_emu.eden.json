@@ -42,6 +42,22 @@
     "modules": [
         "shared-modules/libusb/libusb.json",
         {
+            "name": "xbyak",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/herumi/xbyak.git",
+                    "tag": "v7.30",
+                    "commit": "9d8ff37306f39c6a71cf998078cbe880ce5dc224",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
+                }
+            ]
+        },
+        {
             "name": "libzip",
             "buildsystem": "cmake-ninja",
             "config-opts": [
@@ -302,26 +318,6 @@
                         "version-query": ".tag_name",
                         "url-query": ".tarball_url",
                         "timestamp-query": ".published_at"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "xbyak",
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/herumi/xbyak.git",
-                    "tag": "v7.30",
-                    "commit": "9d8ff37306f39c6a71cf998078cbe880ce5dc224",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
                     }
                 }
             ]
