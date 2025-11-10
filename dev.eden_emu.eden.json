@@ -305,6 +305,26 @@
             ]
         },
         {
+            "name": "xbyak",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/herumi/xbyak.git",
+                    "tag": "v0.1",
+                    "commit": "d4bbd78b000000000000043bf542afc8ae4d5093",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
+                }
+            ]
+        },
+        {
             "name": "eden",
             "buildsystem": "cmake-ninja",
             "builddir": true,
