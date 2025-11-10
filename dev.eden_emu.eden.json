@@ -294,7 +294,7 @@
                 {
                     "type": "archive",
                     "dest-filename": "gamemode.tar.gz",
-                    "url": "https://api.github.com/repos/FeralInteractive/gamemode/tarball/1.8.2",
+                    "url": "https://api.github.com/repos/FeralInteractive/gamemode/tarball/1.7.0",
                     "sha256": "98cd1bcf6101c92fe87f974c7776af23c7e18f29ce6ecfe572b1c39dcde5c181",
                     "x-checker-data": {
                         "type": "json",
