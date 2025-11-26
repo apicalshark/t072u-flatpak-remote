@@ -270,6 +270,7 @@
                 "-DYUZU_TESTS=OFF",
                 "-DYUZU_ENABLE_LTO=ON",
                 "-DTZ_LINK_INTL=ON",
+                "-Wno-deprecated",
                 "-Wno-dev"
             ],
             "build-options": {
