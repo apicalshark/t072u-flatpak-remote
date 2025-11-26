@@ -85,6 +85,27 @@
             ]
         },
         {
+            "name": "nlohmann-json",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
+                "-DJSON_BuildTests=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/nlohmann/json/archive/v3.12.0.tar.gz",
+                    "sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 11152,
+                        "url-template": "https://github.com/nlohmann/json/archive/v$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
             "name": "eden",
             "buildsystem": "cmake-ninja",
             "builddir": true,
@@ -105,7 +126,8 @@
                 "-DENABLE_UPDATE_CHECKER=OFF",
                 "-DYUZU_USE_FASTER_LD=ON",
                 "-DDYNARMIC_ENABLE_LTO=ON",
-                "-DYUZU_BUILD_PRESET=v3"
+                "-DYUZU_BUILD_PRESET=v3",
+                "-DYUZU_USE_CPM=ON"
             ],
             "build-options": {
                 "env": {
