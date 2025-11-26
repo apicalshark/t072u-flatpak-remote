@@ -302,7 +302,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://notabug.org/litucks/torzu.git",
+                    "url": "https://git.gay/rt30.trekker129/torzu.git",
                     "disable-shallow-clone": true,
                     "branch": "master"
                 }
