@@ -42,22 +42,6 @@
     "modules": [
         "shared-modules/libusb/libusb.json",
         {
-            "name": "xbyak",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/herumi/xbyak.git",
-                    "tag": "v7.30",
-                    "commit": "9d8ff37306f39c6a71cf998078cbe880ce5dc224",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
-                    }
-                }
-            ]
-        },
-        {
             "name": "libzip",
             "buildsystem": "cmake-ninja",
             "config-opts": [
@@ -73,228 +57,6 @@
                         "type": "anitya",
                         "project-id": 10649,
                         "url-template": "https://github.com/nih-at/libzip/archive/v$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "zstd",
-            "buildsystem": "meson",
-            "subdir": "build/meson",
-            "config-opts": [
-                "-Dbin_programs=false",
-                "-Dbin_contrib=false"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz",
-                    "sha256": "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 12083,
-                        "stable-only": true,
-                        "url-template": "https://github.com/facebook/zstd/releases/download/v$version/zstd-$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "sirit",
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DSIRIT_TESTS=OFF",
-                "-DSIRIT_BUILD_STATIC=ON"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://git.eden-emu.dev/eden-emu/sirit.git",
-                    "tag": "v1.0.2",
-                    "commit": "d4bbd78b54b1af261fbb143bf542afc8ae4d5093",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "oaknut",
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DCMAKE_INSTALL_INCLUDEDIR=include/oaknut",
-                "-DBUILD_TESTING=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://git.eden-emu.dev/eden-emu/oaknut.git",
-                    "tag": "v2.0.3",
-                    "commit": "a89bcf601f724e4b49e4ffea96aa51db5e0fbb69",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
-                    }
-                }
-            ],
-            "cleanup": [
-                "/lib/pkgconfig",
-                "/lib/cmake",
-                "/share"
-            ]
-        },
-        {
-            "name": "fmt",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
-                "-DFMT_TEST=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/fmtlib/fmt/releases/download/11.2.0/fmt-11.2.0.zip",
-                    "sha256": "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 11526,
-                        "versions": {
-                            "<": "12.0.0"
-                        },
-                        "url-template": "https://github.com/fmtlib/fmt/releases/download/$version/fmt-$version.zip"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "glslang",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/KhronosGroup/glslang/archive/16.0.0.tar.gz",
-                    "sha256": "172385478520335147d3b03a1587424af0935398184095f24beab128a254ecc7",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "stable-only": true,
-                        "project-id": 205796,
-                        "url-template": "https://github.com/KhronosGroup/glslang/archive/$version.tar.gz"
-                    }
-                },
-                {
-                    "type": "archive",
-                    "url": "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.328.1.tar.gz",
-                    "sha256": "d00dc47df7163c2bacd70f090441e8fad96234f0e3b96c54ee9091a49e627adb",
-                    "dest": "External/spirv-tools",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "stable-only": true,
-                        "project-id": 334920,
-                        "url-template": "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-$version.tar.gz"
-                    }
-                },
-                {
-                    "type": "archive",
-                    "url": "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.328.1.tar.gz",
-                    "sha256": "602364ab7bf404a7f352df7da5c645f1c4558a9c92616f8ee33422b04d5e35b7",
-                    "dest": "External/spirv-tools/external/spirv-headers",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "stable-only": true,
-                        "project-id": 334920,
-                        "url-template": "https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "catch2",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DCATCH_INSTALL_EXTRAS=ON",
-                "-DCATCH_BUILD_TESTING=OFF"
-            ],
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/catchorg/Catch2/archive/v3.11.0.tar.gz",
-                    "sha256": "82fa1cb59dc28bab220935923f7469b997b259eb192fb9355db62da03c2a3137",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "stable-only": true,
-                        "versions": {
-                            "<": "4.0.0"
-                        },
-                        "project-id": 7680,
-                        "url-template": "https://github.com/catchorg/Catch2/archive/v$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "nlohmann-json",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
-                "-DJSON_BuildTests=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/nlohmann/json/archive/v3.12.0.tar.gz",
-                    "sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 11152,
-                        "url-template": "https://github.com/nlohmann/json/archive/v$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "boost",
-            "buildsystem": "simple",
-            "build-commands": [
-                "./bootstrap.sh --with-libraries=headers,context,system,fiber,atomic,filesystem",
-                "./b2 -j $FLATPAK_BUILDER_N_JOBS install --prefix=/app"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://archives.boost.io/release/1.88.0/source/boost_1_88_0.tar.bz2",
-                    "sha256": "46d9d2c06637b219270877c9e16155cbd015b6dc84349af064c088e9b5b12f7b"
-                }
-            ]
-        },
-        {
-            "name": "nv-codec-headers",
-            "make-install-args": [
-                "PREFIX=/app"
-            ],
-            "no-autogen": true,
-            "cleanup": [
-                "*"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/FFmpeg/nv-codec-headers.git",
-                    "tag": "n13.0.19.0",
-                    "commit": "e844e5b26f46bb77479f063029595293aa8f812d",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^n([\\d.]+)$"
                     }
                 }
             ]
@@ -340,12 +102,10 @@
                 "-DYUZU_USE_BUNDLED_QT=OFF",
                 "-DYUZU_USE_BUNDLED_SDL2=OFF",
                 "-DYUZU_USE_EXTERNAL_SDL2=ON",
-                "-DYUZU_USE_PRECOMPILED_HEADERS=OFF",
                 "-DENABLE_UPDATE_CHECKER=OFF",
                 "-DYUZU_USE_FASTER_LD=ON",
                 "-DDYNARMIC_ENABLE_LTO=ON",
-                "-DYUZU_BUILD_PRESET=v3",
-                "-DYUZU_USE_CPM=OFF"
+                "-DYUZU_BUILD_PRESET=v3"
             ],
             "build-options": {
                 "env": {
@@ -380,10 +140,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://git.eden-emu.dev/eden-emu/eden.git",
-                    "disable-shallow-clone": true,
-                    "branch": "master"
+                    "type": "archive",
+                    "url": "https://github.com/eden-emulator/Releases/releases/download/v0.0.4-rc3/Eden-Source-v0.0.4-rc3.tar.zst",
+                    "sha256": "26b7e45074c1660cea4448ca1b062314ff5c0b5f80068adbc84418d2298cdb06"
                 }
             ]
         }
