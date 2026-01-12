@@ -305,7 +305,7 @@
                     "type": "git",
                     "url": "https://git.gay/rt30.trekker129/torzu.git",
                     "disable-shallow-clone": true,
-                    "commit": 25c6aaec18e0f0aad8bce752517f147132a36b51
+                    "branch": "master"
                 }
             ]
         }
