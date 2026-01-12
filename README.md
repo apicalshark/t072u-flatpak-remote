@@ -14,4 +14,4 @@ flatpak remote-add --if-not-exists torzu oci+https://apicalshark.github.io/t072u
 flatpak install onion.torzu_emu.torzu
 ```
 > [!NOTE]
-> Note: For GNOME Wayland session user, try removing the Wayland socket with Flatseal if the window decorations of the dark theme are not displaying correctly.
+> This repository is archived as the Torzu project is no longer being actively maintained by its owner. Especially with Flatpak support. While this Flatpak remote remains available, please note that the KDE 6.9 runtime will eventually reach its end-of-life. You may look to Eden as an alternative.
